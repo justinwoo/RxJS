@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+# build all
+npm run build_global
+
+# force add dist and commit it
+rm -rf .git
+git init
+git config user.name "Travis"
+git config user.email "Travis"
+git add .
+git add -f dist
+git rm -f .travis.yml
+git commit -m "dist commit by Travis :)"
+
+# hide my output for security reasons
+# force it because we want this to just actually work
+git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:dist > /dev/null 2>&1
