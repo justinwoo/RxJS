@@ -2,6 +2,11 @@ import {Operator} from '../Operator';
 import {Observable} from '../Observable';
 import {Subscriber} from '../Subscriber';
 
+/**
+ * Returns the elements of the source or a specified default value if empty.
+ * @param {Any} defaultValue the default value used if source is empty; defaults to null.
+ * @returns {Observable} the output sequence.
+ */
 export function defaultIfEmpty<T, R>(defaultValue: R = null): Observable<T> | Observable<R> {
   return this.lift(new DefaultIfEmptyOperator(defaultValue));
 }
