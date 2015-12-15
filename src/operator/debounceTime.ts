@@ -5,6 +5,12 @@ import {Scheduler} from '../Scheduler';
 import {Subscription} from '../Subscription';
 import {asap} from '../scheduler/asap';
 
+/**
+ * Outputs from the source after given time. Optionally takes a scheduler.
+ * @param {number} dueTime time to wait in milliseconds before output from source.
+ * @param {Scheduler} [scheduler] scheduler to run timers on.
+ * @returns {Observable<T>} the debounced observable.
+ */
 export function debounceTime<T>(dueTime: number, scheduler: Scheduler = asap): Observable<T> {
   return this.lift(new DebounceTimeOperator(dueTime, scheduler));
 }
