@@ -8,6 +8,11 @@ import {tryCatch} from '../util/tryCatch';
 import {isPromise} from '../util/isPromise';
 import {errorObject} from '../util/errorObject';
 
+/**
+ * Ignores values from an observable following an initial value within a timed debounce duration.
+ * @param {Function} durationSelector selector function to get a sequence for the throttle duration for each input.
+ * @returns {Observable<T>} the debounced sequence.
+ */
 export function debounce<T>(durationSelector: (value: T) => Observable<any> | Promise<any>): Observable<T> {
   return this.lift(new DebounceOperator(durationSelector));
 }
