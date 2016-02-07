@@ -13,6 +13,7 @@ export interface CoreOperators<T> {
   buffer?: (closingNotifier: Observable<any>) => Observable<T[]>;
   bufferCount?: (bufferSize: number, startBufferEvery: number) => Observable<T[]>;
   bufferTime?: (bufferTimeSpan: number, bufferCreationInterval?: number, scheduler?: Scheduler) => Observable<T[]>;
+  bufferTimeOrCount?: (bufferTimeSpan: number, bufferSize: number, scheduler?: Scheduler) => Observable<T[]>;
   bufferToggle?: <O>(openings: Observable<O>, closingSelector?: (openValue: O) => Observable<any>) => Observable<T[]>;
   bufferWhen?: (closingSelector: () => Observable<any>) => Observable<T[]>;
   catch?: (selector: (err: any, source: Observable<T>, caught: Observable<any>) => Observable<any>) => Observable<T>;

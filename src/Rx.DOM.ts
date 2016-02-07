@@ -34,6 +34,7 @@ import './add/observable/dom/webSocket';
 import './add/operator/buffer';
 import './add/operator/bufferCount';
 import './add/operator/bufferTime';
+import './add/operator/bufferTimeOrCount';
 import './add/operator/bufferToggle';
 import './add/operator/bufferWhen';
 import './add/operator/catch';
